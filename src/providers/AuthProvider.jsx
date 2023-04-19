@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -14,6 +15,11 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+
+  // Login with email and password
+  const loginUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
   // register with email and password
   const createUser = (email, password) => {
@@ -39,13 +45,16 @@ const AuthProvider = ({ children }) => {
   };
   // Observe User Auth State
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
+    //   Stop observing when unmounting
+    return () => unsubscribe();
   }, []);
 
   const authInfo = {
     user,
+    loginUser,
     createUser,
     createUserWithGoogle,
     logOut,

@@ -1,19 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
   const [isShow, setIsShow] = useState(false);
   const [error, setError] = useState("");
 
+  const handleEmailLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    loginUser(email, password)
+      .then(() => console.log("Successfully login."))
+      .catch((error) => setError(error.message));
+  };
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-2xl font-bold mb-6 text-center">Login Account</h1>
-      <form className="w-full max-w-sm mx-auto bg-white p-4 sm:p-8 rounded-md shadow-md">
+      <form
+        onSubmit={handleEmailLogin}
+        className="w-full max-w-sm mx-auto bg-white p-4 sm:p-8 rounded-md shadow-md"
+      >
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-1"
-            for="email"
+            htmlFor="email"
           >
             Email
           </label>
@@ -29,7 +43,7 @@ const Login = () => {
         <div className="mb-2">
           <label
             className="block text-gray-700 text-sm font-bold mb-1"
-            for="password"
+            htmlFor="password"
           >
             Password
           </label>

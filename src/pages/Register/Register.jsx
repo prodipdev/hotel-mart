@@ -11,6 +11,13 @@ const Register = () => {
   const [isTermsChecked, setIsTermsChecked] = useState(false);
   const [error, setError] = useState("");
 
+  // Automatic remove error message
+  if (error) {
+    setTimeout(() => {
+      setError("");
+    }, 5000);
+  }
+
   // Register With Email & Password
   const handleEmailRegister = (event) => {
     event.preventDefault();
@@ -19,6 +26,27 @@ const Register = () => {
     const photo = form.profilePhoto.value;
     const email = form.email.value;
     const password = form.password.value;
+    const confirmPassword = form.confirmPassword.value;
+
+    // Check password validation
+    if (!password || !confirmPassword) {
+      return setError("*Please enter password!");
+    } else if (password !== confirmPassword) {
+      return setError("*Password doesn't match!");
+    } else if (password) {
+      const regex =
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])/;
+      if (!regex.test(password)) {
+        return setError("*Enter a strong password!");
+      } else if (password.length < 6) {
+        return setError("*Enter a password with at least 6 digits!");
+      }
+    }
+    // Check terms and condition field
+    if (!isTermsChecked) {
+      return setError("*Please agree to the terms and conditions!");
+    }
+
     createUser(email, password)
       .then((result) => {
         updateName(result.user, name, photo);
@@ -45,7 +73,7 @@ const Register = () => {
         <div className="mb-2">
           <label
             className="block text-gray-700 text-sm font-bold mb-1"
-            for="name"
+            htmlFor="name"
           >
             Name
           </label>
@@ -61,9 +89,9 @@ const Register = () => {
         <div className="mb-2">
           <label
             className="block text-gray-700 text-sm font-bold mb-1"
-            for="profilePhoto"
+            htmlFor="profilePhoto"
           >
-            Photo Url
+            Photo Url <small className="font-normal">(Optional)</small>
           </label>
           <input
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
@@ -76,7 +104,7 @@ const Register = () => {
         <div className="mb-2">
           <label
             className="block text-gray-700 text-sm font-bold mb-1"
-            for="email"
+            htmlFor="email"
           >
             Email
           </label>
@@ -92,7 +120,7 @@ const Register = () => {
         <div className="mb-2">
           <label
             className="block text-gray-700 text-sm font-bold mb-1"
-            for="password"
+            htmlFor="password"
           >
             Password
           </label>
@@ -121,7 +149,7 @@ const Register = () => {
         <div className="mb-2">
           <label
             className="block text-gray-700 text-sm font-bold mb-1"
-            for="confirmPassword"
+            htmlFor="confirmPassword"
           >
             Confirm Password
           </label>

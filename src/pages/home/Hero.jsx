@@ -3,7 +3,7 @@ import banner from "../../assets/banner.webp";
 const Hero = () => {
   return (
     <div>
-      <img className="bg-blend-darken" src={banner} alt="" />
+      <img className="" src={banner} alt="" />
     </div>
   );
 };
