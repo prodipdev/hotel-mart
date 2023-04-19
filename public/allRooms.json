@@ -1,0 +1,108 @@
+[
+  {
+    "title": "Cozy Standard Room",
+    "room_number": "101",
+    "room_type": "standard",
+    "beds": 1,
+    "max_occupancy": 2,
+    "price_per_night": 100,
+    "amenities": ["TV", "WiFi", "Air conditioning"],
+    "image": "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmVkcm9vbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    "description": "This cozy standard room is perfect for solo travelers or couples. It features a comfortable bed, TV, WiFi, and air conditioning for your comfort. Enjoy a good night's rest in this peaceful room."
+  },
+  {
+    "title": "Spacious Standard Room",
+    "room_number": "102",
+    "room_type": "standard",
+    "beds": 2,
+    "max_occupancy": 4,
+    "price_per_night": 150,
+    "amenities": [
+      "TV",
+      "WiFi",
+      "Air conditioning",
+      "Mini fridge",
+      "Coffee maker"
+    ],
+    "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGJlZHJvb218ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+    "description": "This spacious standard room is great for families or groups of friends. It features two comfortable beds, TV, WiFi, air conditioning, a mini fridge, and a coffee maker for your convenience. Relax and unwind in this cozy room."
+  },
+  {
+    "title": "Deluxe Room with Balcony",
+    "room_number": "201",
+    "room_type": "deluxe",
+    "beds": 2,
+    "max_occupancy": 4,
+    "price_per_night": 250,
+    "amenities": [
+      "TV",
+      "WiFi",
+      "Air conditioning",
+      "Mini fridge",
+      "Coffee maker",
+      "Balcony"
+    ],
+    "image": "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YmVkcm9vbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    "description": "Indulge in a luxurious stay in our deluxe room with a balcony. It features two comfortable beds, TV, WiFi, air conditioning, a mini fridge, a coffee maker, and a balcony with a beautiful view of the city. Enjoy a refreshing morning coffee on the balcony and start your day off right."
+  },
+  {
+    "title": "Deluxe Room with Jacuzzi",
+    "room_number": "202",
+    "room_type": "deluxe",
+    "beds": 1,
+    "max_occupancy": 2,
+    "price_per_night": 300,
+    "amenities": [
+      "TV",
+      "WiFi",
+      "Air conditioning",
+      "Mini fridge",
+      "Coffee maker",
+      "Jacuzzi"
+    ],
+    "image": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJlZHJvb218ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+    "description": "Indulge in a romantic getaway in our deluxe room with a private Jacuzzi. It features a comfortable bed, TV, WiFi, air conditioning, a mini fridge, a coffee maker, and a private Jacuzzi for two. Relax and unwind with your loved one in this luxurious room."
+  },
+  {
+    "title": "Luxury Suite with Ocean View",
+    "room_number": "301",
+    "room_type": "suite",
+    "beds": 1,
+    "max_occupancy": 2,
+    "price_per_night": 400,
+    "amenities": [
+      "TV",
+      "WiFi",
+      "Air conditioning",
+      "Mini fridge",
+      "Coffee maker",
+      "Balcony",
+      "Ocean view",
+      "Spa tub"
+    ],
+    "image": "https://images.unsplash.com/photo-1571508601891-ca5e7a713859?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJlZHJvb218ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+    "description": "Indulge in the ultimate luxury experience with our luxury suite with ocean view. It features a comfortable bed, TV, WiFi, air conditioning, a mini fridge, a coffee maker, a balcony with an ocean view, and a spa tub for your relaxation. Unwind and enjoy the breathtaking view of the ocean from your balcony."
+  },
+  {
+    "title": "Presidential Suite",
+    "room_number": "302",
+    "room_type": "suite",
+    "beds": 2,
+    "max_occupancy": 4,
+    "price_per_night": 1000,
+    "amenities": [
+      "TV",
+      "WiFi",
+      "Air conditioning",
+      "Mini fridge",
+      "Coffee maker",
+      "Balcony",
+      "Ocean view",
+      "Spa tub",
+      "Kitchen",
+      "Dining area"
+    ],
+    "image": "https://plus.unsplash.com/premium_photo-1678297270033-2b6902e1b5dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzl8fGJlZHJvb218ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+    "description": "Experience the height of luxury with our presidential suite. It features two comfortable beds, TV, WiFi, air conditioning, a mini fridge, a coffee maker, a balcony with an ocean view, a spa tub, a kitchen, and a dining area for your convenience. Enjoy a private dining experience with your loved ones in this exclusive suite."
+  }
+]

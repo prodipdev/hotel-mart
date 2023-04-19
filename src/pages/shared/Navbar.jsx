@@ -6,7 +6,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   console.log(user);
   return (
-    <nav className="flex flex-wrap justify-between items-center gap-3 gap-y-1 py-3 shadow mb-5 px-10">
+    <nav className="flex flex-wrap justify-between items-center gap-3 gap-y-1 py-3 shadow px-5 sm:px-10">
       <h2 className="text-xl font-bold">Hotel Mart</h2>{" "}
       <ul className="flex items-center gap-5">
         <li>

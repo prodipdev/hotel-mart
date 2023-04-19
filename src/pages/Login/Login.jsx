@@ -1,22 +1,32 @@
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, signInWithGoogle } = useContext(AuthContext);
   const [isShow, setIsShow] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
+  // Login with email and password
   const handleEmailLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+
     loginUser(email, password)
-      .then(() => console.log("Successfully login."))
+      .then((result) => {
+        console.log("successfully login");
+        form.reset();
+        navigate(from, { replace: true });
+      })
       .catch((error) => setError(error.message));
   };
+
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-2xl font-bold mb-6 text-center">Login Account</h1>
@@ -92,6 +102,30 @@ const Login = () => {
         >
           Login
         </button>
+        <p className="text-center text-sm">Or</p>
+        <ul className="flex gap-5 items-center justify-center mt-1 mb-4">
+          <li
+            onClick={() => signInWithGoogle()}
+            className="w-8 bg-gray-200 p-1 rounded-full"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/150px-Google_%22G%22_Logo.svg.png"
+              alt="logo"
+            />
+          </li>
+          <li className="w-8 bg-gray-200 p-1 rounded-full">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png"
+              alt="logo"
+            />
+          </li>
+          <li className="w-8 bg-gray-200 p-1 rounded-full">
+            <img
+              src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-twitter-social-media-round-icon-png-image_6315985.png"
+              alt="logo"
+            />
+          </li>
+        </ul>
         <hr />
         <p className="text-center mt-2">
           Don't you have an account yet?{" "}

@@ -5,7 +5,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { createUser, createUserWithGoogle } = useContext(AuthContext);
+  const { createUser, signInWithGoogle } = useContext(AuthContext);
   const [firstIsShow, setFirstIsShow] = useState(false);
   const [secondIsShow, setSecondIsShow] = useState(false);
   const [isTermsChecked, setIsTermsChecked] = useState(false);
@@ -61,6 +61,7 @@ const Register = () => {
         photoURL: profilePhoto,
       });
     };
+    event.reset();
   };
 
   return (
@@ -208,7 +209,7 @@ const Register = () => {
         <p className="text-center text-sm">Or</p>
         <ul className="flex gap-5 items-center justify-center mt-1 mb-4">
           <li
-            onClick={() => createUserWithGoogle()}
+            onClick={() => signInWithGoogle()}
             className="w-8 bg-gray-200 p-1 rounded-full"
           >
             <img

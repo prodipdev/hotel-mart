@@ -18,16 +18,18 @@ const AuthProvider = ({ children }) => {
 
   // Login with email and password
   const loginUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // register with email and password
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // register with google
-  const createUserWithGoogle = () => {
+  const signInWithGoogle = () => {
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
       .then((result) => {
@@ -47,6 +49,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
     //   Stop observing when unmounting
     return () => unsubscribe();
@@ -54,9 +57,10 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    loading,
     loginUser,
     createUser,
-    createUserWithGoogle,
+    signInWithGoogle,
     logOut,
   };
   return (
