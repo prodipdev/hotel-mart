@@ -27,6 +27,15 @@ const Login = () => {
       .catch((error) => setError(error.message));
   };
 
+  // Sign In with Google
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then(() => {
+        navigate(from, { replace: true });
+        console.log(from);
+      })
+      .catch((error) => setError(error.message));
+  };
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-2xl font-bold mb-6 text-center">Login Account</h1>
@@ -105,7 +114,7 @@ const Login = () => {
         <p className="text-center text-sm">Or</p>
         <ul className="flex gap-5 items-center justify-center mt-1 mb-4">
           <li
-            onClick={() => signInWithGoogle()}
+            onClick={handleGoogleLogin}
             className="w-8 bg-gray-200 p-1 rounded-full"
           >
             <img

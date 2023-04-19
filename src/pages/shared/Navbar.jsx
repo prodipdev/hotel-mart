@@ -1,19 +1,33 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FiLogOut } from "react-icons/fi";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   console.log(user);
   return (
-    <nav className="flex flex-wrap justify-between items-center gap-3 gap-y-1 py-3 shadow px-5 sm:px-10">
+    <nav className="sticky top-0 flex flex-wrap justify-between items-center gap-3 gap-y-1 py-3 bg-white shadow px-5 sm:px-10">
       <h2 className="text-xl font-bold">Hotel Mart</h2>{" "}
       <ul className="flex items-center gap-5">
         <li>
-          <Link to={"/"}>Home</Link>
+          <NavLink
+            to={"/"}
+            className={({ isActive }) =>
+              isActive ? "text-indigo-500 underline underline-offset-2" : ""
+            }
+          >
+            Home
+          </NavLink>
         </li>
         <li>
-          <Link to={"/checkout"}>Checkout</Link>
+          <NavLink
+            to={"/checkout"}
+            className={({ isActive }) =>
+              isActive ? "text-indigo-500 underline underline-offset-2" : ""
+            }
+          >
+            Checkout
+          </NavLink>
         </li>
         {user ? (
           <>

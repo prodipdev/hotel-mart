@@ -30,14 +30,9 @@ const AuthProvider = ({ children }) => {
 
   // register with google
   const signInWithGoogle = () => {
+    setLoading(true);
     const googleProvider = new GoogleAuthProvider();
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        console.log(result.user);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+    return signInWithPopup(auth, googleProvider);
   };
   // LogOut
   const logOut = () => {
