@@ -10,7 +10,7 @@ const Features = () => {
   }, []);
   console.log(rooms);
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-10">
+    <div className="px-5 sm:px-10 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-10">
       {rooms.map((room) => (
         <FeatureCard key={room.room_number} room={room}></FeatureCard>
       ))}
